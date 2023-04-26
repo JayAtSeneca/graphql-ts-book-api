@@ -1,5 +1,6 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
+import schema from './graphql/schema';
 import dotenv from 'dotenv';
 dotenv.config();
 // A schema is a collection of type definitions (hence "typeDefs")
@@ -41,8 +42,7 @@ const resolvers = {
 // The ApolloServer constructor requires two parameters: your schema
 // definition and your set of resolvers.
 const server = new ApolloServer({
-    typeDefs,
-    resolvers,
+    schema
 });
 // Passing an ApolloServer instance to the `startStandaloneServer` function:
 //  1. creates an Express app
